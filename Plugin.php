@@ -32,6 +32,21 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerPermissions()
+    {
+        return [
+            'mezzanine.formbuilder.manage_forms' => [
+                'tab' => 'mezzanine.formbuilder::lang.page.tab',
+                'order' => 200,
+                'label' => 'mezzanine.formbuilder::lang.page.manage_formbuilder'],
+
+            'mezzanine.formbuilder.manage_submissions' => [
+                'tab' => 'mezzanine.formbuilder::lang.page.tab',
+                'order' => 200,
+                'label' => 'mezzanine.formbuilder::lang.page.manage_menus'],
+        ];
+    }
+
     public function registerNavigation()
     {
         return [
@@ -48,12 +63,6 @@ class Plugin extends PluginBase
                         'icon' => 'icon-book',
                         'url' => Backend::url('mezzanine/formbuilder/forms'),
                         'permissions' => ['mezzanine.formbuilder.access_forms'],
-                    ],
-                    'fields' => [
-                        'label' => 'Fields',
-                        'icon' => 'icon-book',
-                        'url' => Backend::url('mezzanine/formbuilder/fields'),
-                        'permissions' => ['mezzanine.formbuilder.access_fields'],
                     ],
                     'submissions' => [
                         'label' => 'Submissions',
