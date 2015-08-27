@@ -1,0 +1,44 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    sort_order:
+        label: Sort Order
+
+    name:
+        label: Name
+
+    label:
+        label: Label
+
+    placeholder:
+        label: Placeholder text
+
+    field_type:
+        label: Type
+
+    validation:
+        label: Validation
+
+    default:
+        label: Default Value
+
+    group_classes:
+        label: Wrapper element classes
+
+    label_classes:
+        label: Label element classes
+
+    input_classes:
+        label: Input element classes
+
+    input_extra:
+        label: Extra input element attributes
+
+    values:
+        label: Values
+
+    enabled:
+        label: Enabled

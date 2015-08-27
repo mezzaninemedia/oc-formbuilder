@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Submission
+
+# Model Form Field configuration
+form: $/mezzanine/formbuilder/models/submission/fields.yaml
+
+# Model Class name
+modelClass: Mezzanine\FormBuilder\Models\Submission
+
+# Default redirect location
+defaultRedirect: mezzanine/formbuilder/submissions
+
+# Create page
+create:
+    title: Create Submission
+    redirect: mezzanine/formbuilder/submissions/update/:id
+    redirectClose: mezzanine/formbuilder/submissions
+
+# Update page
+update:
+    title: Edit Submission
+    redirect: mezzanine/formbuilder/submissions
+    redirectClose: mezzanine/formbuilder/submissions
+
+# Preview page
+preview:
+    title: Preview Submission

@@ -1,0 +1,28 @@
+{% if __SELF__.isSaved %}
+<div>
+    <p>Thank you. Your submission has been successfully processed.</p>
+</div>
+{% endif %}
+<form method='POST'>
+    {% for item in __SELF__.fields %}
+        {% if loop.first %}
+        <div class='row'>
+        {% elseif item.startsNewRow %}
+        </div>
+        <div class='row'>
+        {% endif %}
+
+        <div class='{{ item.group_classes }}'>
+            <label>
+                {{ item.label }}
+                {% set field_type = item.field_type ?: 'text' %}
+                {% partial __SELF__ ~ "::_" ~ field_type item=item %}
+            </label>
+        </div>
+
+        {% if loop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+    <button type='submit'>Submit</button>
+</form>

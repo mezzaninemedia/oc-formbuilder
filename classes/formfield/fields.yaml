@@ -1,0 +1,19 @@
+
+fields:
+
+    title:
+        span: left
+        label: rainlab.pages::lang.menuitem.title
+
+    type:
+        span: right
+        label: rainlab.pages::lang.menuitem.type
+        type: dropdown
+
+    url:
+        label: rainlab.pages::lang.menuitem.url
+
+    reference:
+        label: rainlab.pages::lang.menuitem.reference
+        type: dropdown
+        cssClass: input-sidebar-control

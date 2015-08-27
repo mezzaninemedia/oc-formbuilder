@@ -1,0 +1,30 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: Name
+
+    description:
+        label: Description
+        type: textarea
+        size: small
+
+tabs:
+    stratch: true
+    fields:
+        fields:
+            tab: Fields
+            label: ''
+            stretch: true
+            type: partial
+            path: $/mezzanine/formbuilder/controllers/forms/_fields_list.htm
+
+        actions:
+            tab: Actions
+            label: ''
+            stretch: true
+            type: partial
+            path: $/mezzanine/formbuilder/controllers/forms/_actions_list.htm

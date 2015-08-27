@@ -1,0 +1,21 @@
+fields:
+    label: Form Fields
+    list: $/mezzanine/formbuilder/models/field/columns.yaml
+    form: $/mezzanine/formbuilder/models/field/fields.yaml
+    view:
+        showSorting: false
+        toolbarButtons: create|delete
+        defaultSort: sort_order
+    manage:
+        recordsPerPage: 1000
+
+actions:
+    label: Form Actions
+    list: $/mezzanine/formbuilder/models/action/columns.yaml
+    form: $/mezzanine/formbuilder/models/action/fields.yaml
+    view:
+        showSorting: false
+        toolbarButtons: create|delete
+        defaultSort: sort_order
+    manage:
+        recordsPerPage: 1000

@@ -1,0 +1,6 @@
+1.0.0:
+    - First version of FormBuilder
+    - create_forms_table.php
+    - create_fields_table.php
+    - create_submissions_table.php
+    - create_actions_table.php

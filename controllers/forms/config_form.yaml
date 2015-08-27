@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Form
+
+# Model Form Field configuration
+form: $/mezzanine/formbuilder/models/form/fields.yaml
+
+# Model Class name
+modelClass: Mezzanine\FormBuilder\Models\Form
+
+# Default redirect location
+defaultRedirect: mezzanine/formbuilder/forms
+
+# Create page
+create:
+    title: Create Form
+    redirect: mezzanine/formbuilder/forms/update/:id
+    redirectClose: mezzanine/formbuilder/forms
+
+# Update page
+update:
+    title: Edit Form
+    redirect: mezzanine/formbuilder/forms
+    redirectClose: mezzanine/formbuilder/forms
+
+# Preview page
+preview:
+    title: Preview Form
