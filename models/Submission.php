@@ -17,7 +17,7 @@ class Submission extends Model
     /**
      * @var array Guarded fields
      */
-    protected $guarded = ['*'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
      * @var array Fillable fields
@@ -29,7 +29,12 @@ class Submission extends Model
      */
     public $hasOne = [];
     public $hasMany = [];
-    public $belongsTo = [];
+    public $belongsTo = [
+        'form' => [
+            'Mezzanine\FormBuilder\Models\Form',
+            'key' => 'form_id',
+        ],
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

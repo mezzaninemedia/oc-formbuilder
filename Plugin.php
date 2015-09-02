@@ -3,6 +3,7 @@
 namespace Mezzanine\FormBuilder;
 
 use Backend;
+use Event;
 use System\Classes\PluginBase;
 
 /**
@@ -38,12 +39,12 @@ class Plugin extends PluginBase
             'mezzanine.formbuilder.manage_forms' => [
                 'tab' => 'mezzanine.formbuilder::lang.page.tab',
                 'order' => 200,
-                'label' => 'mezzanine.formbuilder::lang.page.manage_formbuilder'],
+                'label' => 'mezzanine.formbuilder::lang.page.manage_formbuilder',],
 
             'mezzanine.formbuilder.manage_submissions' => [
                 'tab' => 'mezzanine.formbuilder::lang.page.tab',
                 'order' => 200,
-                'label' => 'mezzanine.formbuilder::lang.page.manage_menus'],
+                'label' => 'mezzanine.formbuilder::lang.page.manage_menus',],
         ];
     }
 
@@ -73,5 +74,27 @@ class Plugin extends PluginBase
                 ],
             ],
         ];
+    }
+
+    public function boot()
+    {
+        Event::listen('mezzanine.formbuilder.listActionTypes', function () {
+            return [
+                'send-email' => 'Mezzanine\FormBuilder\Actions\Email',
+            ];
+        });
+
+        Event::listen('mezzanine.formbuilder.listFieldTypes', function () {
+            return [
+                'text' => 'Mezzanine\FormBuilder\Fields\Text',
+                'email' => 'Mezzanine\FormBuilder\Fields\Email',
+            ];
+        });
+
+        Event::listen('backend.form.extendFields', function ($form) {
+            if (!$form->model instanceof \Mezzanine\FormBuilder\Models\Action)
+                return;
+            $form->addFields($form->model->getCustomFields());
+        });
     }
 }

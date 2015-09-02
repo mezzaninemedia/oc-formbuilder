@@ -5,6 +5,7 @@
 columns:
     sort_order:
         label: Sort Order
+        type: number
 
     name:
         label: Name

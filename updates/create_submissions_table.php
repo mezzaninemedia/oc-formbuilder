@@ -12,6 +12,7 @@ class CreateSubmissionsTable extends Migration
         Schema::create('mezzanine_formbuilder_submissions', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('form_id')->unsigned()->nullable()->index();
             $table->datetime('submitted_at')->nulable();
             $table->string('key')->nullable();
             $table->string('ip_address')->nullable();

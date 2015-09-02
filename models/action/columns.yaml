@@ -3,6 +3,13 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+
+    type:
+        label: Type
+        searchable: true
+        type: partial
+        path: $/mezzanine/formbuilder/models/action/_type_name_field.php
+
+    name:
+        label: Name
         searchable: true

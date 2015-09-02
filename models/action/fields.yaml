@@ -3,6 +3,13 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+
+    sort_order:
+        label: Sort order
+
+    type:
+        label: type
+        type: dropdown
+
+    name:
+        label: Name

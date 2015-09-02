@@ -2,20 +2,17 @@
 
 namespace Mezzanine\FormBuilder\Components;
 
-use DateTime;
-use Log;
+use App;
 use Request;
 use Cms\Classes\ComponentBase;
 use Mezzanine\FormBuilder\Models\Form as FormModel;
 use Mezzanine\FormBuilder\Models\Field as FieldModel;
-use Mezzanine\FormBuilder\Models\Submission;
 
 class Form extends ComponentBase
 {
 
     private $_values = [];
     private $_saved = false;
-    private $_submission = null;
 
     public function componentDetails()
     {
@@ -56,21 +53,12 @@ class Form extends ComponentBase
     public function onRun()
     {
         $form = $this->getForm();
-        $availableFields = $form->availableFields();
-        $this->_values = Request::only($availableFields);
+        $request = App::make('request');
 
-        if (Request::isMethod('post')) {
-            $submission = new Submission();
-            $submission->submitted_at = new DateTime();
-            $submission->user_agent = Request::header('user-agent');
-            $submission->ip_address = Request::ip();
-            $submission->referer = Request::header('referer');
-            $submission->url = Request::url();
-            $submission->raw_input = Request::all();
-            $submission->input = $this->_values;
-            $submission->save();
+        $this->_values = $request->all();
 
-            $this->_submission = $submission;
+        if ($request->isMethod('post')) {
+            $form->runActions($request);
             $this->_saved = true;
             $this->_values = [];
         }
@@ -82,7 +70,8 @@ class Form extends ComponentBase
         return FormModel::find($id);
     }
 
-    public function isSaved() {
+    public function isSaved()
+    {
         return $this->_saved;
     }
 }

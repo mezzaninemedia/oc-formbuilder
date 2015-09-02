@@ -3,9 +3,13 @@
 # ===================================
 
 columns:
-    
+
     name:
         label: Name
+        searchable: true
+
+    slug:
+        label: Form ID
         searchable: true
 
     created_at:

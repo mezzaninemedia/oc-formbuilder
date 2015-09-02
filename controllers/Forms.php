@@ -2,6 +2,7 @@
 
 namespace Mezzanine\FormBuilder\Controllers;
 
+use Log;
 use BackendMenu;
 use Backend\Classes\Controller;
 
@@ -26,4 +27,29 @@ class Forms extends Controller
 
         BackendMenu::setContext('Mezzanine.FormBuilder', 'formbuilder', 'forms');
     }
+
+    public function create()
+    {
+        $this->bodyClass = 'compact-container';
+
+        return $this->asExtension('FormController')->create();
+    }
+
+    public function update($recordId = null)
+    {
+        $this->bodyClass = 'compact-container';
+        $this->addCss('/plugins/mezzanine/formbuilder/assets/css/reorder.css');
+        $this->addJs('/plugins/mezzanine/formbuilder/assets/js/reorder.js');
+
+        return $this->asExtension('FormController')->update($recordId);
+    }
+
+    // public function formExtendFields($form)
+    // {
+    //     Log::info(get_object_vars($form));
+    //     // Log::info(get_class($model));
+    //     // Log::info(get_class($context));
+    //     // $form->addFields([...]);
+    // }
+
 }

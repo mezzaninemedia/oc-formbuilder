@@ -3,24 +3,41 @@
 # ===================================
 
 fields:
-
     name:
         label: Name
+        span: left
+        placeholder: Form name
 
-    description:
-        label: Description
-        type: textarea
-        size: small
+    slug:
+        label: Form ID
+        span: right
+        preset:
+            field: name
+            type: slug
 
-tabs:
-    stratch: true
+    toolbar:
+        type: partial
+        path: post_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    # stretch: true
     fields:
+
+        description:
+            tab: Settings
+            label: Description
+            type: textarea
+            size: small
+            cssClass: padded-container
+
         fields:
             tab: Fields
             label: ''
             stretch: true
             type: partial
             path: $/mezzanine/formbuilder/controllers/forms/_fields_list.htm
+            cssClass: padded-container
 
         actions:
             tab: Actions
@@ -28,3 +45,4 @@ tabs:
             stretch: true
             type: partial
             path: $/mezzanine/formbuilder/controllers/forms/_actions_list.htm
+            cssClass: padded-container
