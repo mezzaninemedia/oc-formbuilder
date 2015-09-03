@@ -1,0 +1,21 @@
+{
+    "name": "mezzanine/oc-formbuilder",
+    "description": "October CMS FormBuilder Plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Karl Bowden",
+            "email": "karl@mezzaninemedia.com.au"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mezzanine\\FormBuilder\\Actions\\": "actions",
+            "Mezzanine\\FormBuilder\\": ""
+        }
+    }
+}
